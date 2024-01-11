@@ -2,31 +2,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        // Type your code here
+        Scanner scnr = new Scanner(System.in);
+        /* Type your code here. */
         double[] values = new double[3];
-
-        for (int i = 0; i < 3; i++) {
-            values[i] = input.nextDouble()
-;        }
-        input.close();
-
         double sum = 0.0;
 
-        for (double value : values) {
-            sum += value;
-        }
-        double average = sum / 3.0;
 
+        // Get user input
+        for (int i = 0; i < values.length; i++) {
+            values[i] = scnr.nextDouble();
+            sum += values[i];
+        }
+        scnr.close();
+
+        // Calculating the average
+        double average = sum / values.length;
+
+        // Outputting the array values
         System.out.print("Array items: ");
-        
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < values.length; i++) {
             System.out.print(values[i]);
-            if (i < 2) {
+            if (i < values.length - 1) {
                 System.out.print(", ");
             }
         }
-        System.out.println();
-        System.out.println("Average: " + average);
+
+        // Outputting the average
+        System.out.println("\nAverage: " + average);
+
     }
 }
